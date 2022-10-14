@@ -18,24 +18,7 @@ except:
     CONFIG_SUPPORTS_TOKEN = False
     configfile = path.join(path.dirname(path.abspath(__file__)), 'config.conf')
 
-token_resp = {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiI1OGViMDZhNC1kY2Q3LTRlOTYtOGZhYy1jY2EyYWZjMDNlNjEiLCJpbnRlcm5hbCI6ZmFsc2UsInBvZCI6ImNvb2siLCJvcmciOiJuZWlsLXRlc3QiLCJpZGVudGl0eV9pZCI6ImZmODA4MTgxNTVmZThjMDgwMTU1ZmU4ZDkyNWIwMzE2IiwidXNlcl9uYW1lIjoic2xwdC5zZXJ2aWNlcyIsInN0cm9uZ19hdXRoIjp0cnVlLCJhdXRob3JpdGllcyI6WyJPUkdfQURNSU4iXSwiZW5hYmxlZCI6dHJ1ZSwiY2xpZW50X2lkIjoiZmNjMGRkYmItMTA1Yy00Y2Q3LWI5NWUtMDI3NmNiZTQ1YjkwIiwiYWNjZXNzVHlwZSI6Ik9GRkxJTkUiLCJzdHJvbmdfYXV0aF9zdXBwb3J0ZWQiOmZhbHNlLCJ1c2VyX2lkIjoiNTk1ODI2Iiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTU2NTg5MTA2MywianRpIjoiOTQ5OWIyOTktOTVmYS00N2ZiLTgxNWMtODVkNWY2YjQzZTg2In0.zJYfjIladuGHoLXr92EOJ3A9qGNkiG5UJ9eqrtSYXAQ",
-  "token_type": "bearer",
-  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiI1OGViMDZhNC1kY2Q3LTRlOTYtOGZhYy1jY2EyYWZjMDNlNjEiLCJpbnRlcm5hbCI6ZmFsc2UsInBvZCI6ImNvb2siLCJvcmciOiJuZWlsLXRlc3QiLCJpZGVudGl0eV9pZCI6ImZmODA4MTgxNTVmZThjMDgwMTU1ZmU4ZDkyNWIwMzE2IiwidXNlcl9uYW1lIjoic2xwdC5zZXJ2aWNlcyIsInN0cm9uZ19hdXRoIjp0cnVlLCJhdXRob3JpdGllcyI6WyJPUkdfQURNSU4iXSwiZW5hYmxlZCI6dHJ1ZSwiY2xpZW50X2lkIjoiZmNjMGRkYmItMTA1Yy00Y2Q3LWI5NWUtMDI3NmNiZTQ1YjkwIiwiWYNjZXNzVHlwZSI6Ik9GRkxJTkUiLCJzdHJvbmdfYXV0aF9zdXBwb3J0ZWQiOmZhbHNlLCJ1c2VyX2lkIjoiNTk1ODI2Iiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6Ijk0OTliMjk5LTk1ZmEtNDdmYi04MTVjLTg1ZDVmNmI0M2U4NiIsImV4cCI6MTU2NTk3NjcxMywianRpIjoiODliODk1ZDMtNTdlNC00ZDAwLWI5ZjctOTFlYWVjNDcxMGQ3In0.pfDcB0sGChdHk-oDNmiIxsKFLxq9CcPQV5-eXWgIcp4",
-  "expires_in": 749,
-  "scope": "read write",
-  "accessType": "OFFLINE",
-  "tenant_id": "58eb06a4-dcd7-4e96-8fac-cca2afc03e61",
-  "internal": False,
-  "pod": "cook",
-  "strong_auth_supported": False,
-  "org": "example",
-  "user_id": "595826",
-  "identity_id": "ff80818155fe8c080155fe8d925b0316",
-  "strong_auth": False,
-  "enabled": False,
-  "jti": "9499b299-95fa-47fb-815c-85d5f6b43e86"
-}
+
 error_msgs = {
     400: 'Client Error - Returned if the request body is invalid.',
     401: 'Unauthorized - Returned if there is no authorization header, or if the JWT token is expired.',
@@ -59,14 +42,14 @@ class SailPointOAuth(object):
 
     def make_rest_call(self, endpoint, params={}, payload={}, headers=None, method='GET'):
         service_endpoint = '{0}{1}'.format(self.base_url, endpoint)
-        logger.error("service_endpoint: {0}".format(service_endpoint))
-        logger.error("Rest API Payload: {0}".format(payload))
-        logger.error("Rest API params: {0}".format(params))
+        logger.debug("service_endpoint: {0}".format(service_endpoint))
+        logger.debug("Rest API Payload: {0}".format(payload))
+        logger.debug("Rest API params: {0}".format(params))
         try:
             response = requests.request(method=method, url=service_endpoint, data=payload, params=params,
                                         headers=headers, verify=self.verify_ssl)
-            logger.error("API Response Status Code: {0}".format(response.status_code))
-            logger.error("API Response: {0}".format(response.text))
+            logger.debug("API Response Status Code: {0}".format(response.status_code))
+            logger.debug("API Response: {0}".format(response.text))
             if response.ok:
                 return response.json()
             if response.status_code in error_msgs.keys():
@@ -103,8 +86,8 @@ class SailPointOAuth(object):
         else:
             payload = {'grant_type': 'client_credentials', 'client_id': self.client_id,
                        'client_secret': self.client_secret}
-        #token_resp = self.make_rest_call('/oauth/token', payload=payload, headers=headers,
-        #                                 method='POST')
+        token_resp = self.make_rest_call('/oauth/token', payload=payload, headers=headers,
+                                        method='POST')
         token_resp['expires_in'] = (ts_now + token_resp['expires_in']) if token_resp.get("expires_in") else None
         return token_resp
 
@@ -269,3 +252,4 @@ def _check_health(config):
     except Exception as err:
         logger.error(str(err))
         raise ConnectorError(str(err))
+
