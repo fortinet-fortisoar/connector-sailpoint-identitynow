@@ -1,0 +1,793 @@
+{
+  "name": "sailpoint-identitynow",
+  "label": "SailPoint IdentityNow",
+  "description": "SailPoint IdentityNow that allows you to easily control user access to all systems and applications, enhance audit response and increase your operational efficiency. This connector facilitates automated operation for identity management.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "Identity and Access Management",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "tooltip": "URL of the SailPoint IdentityNow server to which you will connect and perform automated operations.",
+        "description": "URL of the SailPoint IdentityNow server to which you will connect and perform automated operations.",
+        "value": "https://org.api.identitynow.com"
+      },
+      {
+        "title": "Client ID",
+        "name": "client_id",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "tooltip": "Client ID to access the SailPoint IdentityNow server to which you will connect and perform automated operations.",
+        "description": "Client ID to access the SailPoint IdentityNow server to which you will connect and perform automated operations."
+      },
+      {
+        "title": "Client Secret",
+        "name": "client_secret",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "tooltip": "Client Secret to access the SailPoint IdentityNow to which you will connect and perform automated operations.",
+        "description": "Client Secret to access the SailPoint IdentityNow to which you will connect and perform automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_accounts",
+      "title": "Get Accounts",
+      "description": "Retrieves a list of all accounts details from the SailPoint IdentityNow system.",
+      "category": "investigation",
+      "annotation": "get_accounts",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "name": "filter",
+          "type": "text",
+          "tooltip": "Filter result based on provided filter Filtering is supported for the following fields and operators:\nid: eq, in \\n identityId: eq \\n name: eq, in \\n nativeIdentity: eq, in \\n sourceId: eq, in \\n uncorrelated: eq.Please refer this link https://developer.sailpoint.com/docs/standard_collection_parameters.html",
+          "description": "Filter result based on provided filter Filtering is supported for the following fields and operators:\nid: eq, in \\n identityId: eq \\n name: eq, in \\n nativeIdentity: eq, in \\n sourceId: eq, in \\n uncorrelated: eq.Please refer this link https://developer.sailpoint.com/docs/standard_collection_parameters.html",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "placeholder": "identitySummary.id eq \"2c9180846e85e4b8016eafeba20c1314\"\n"
+        },
+        {
+          "title": "Detail Level",
+          "name": "detailLevel",
+          "type": "select",
+          "tooltip": "Determines whether Slim, or increased level of detail is provided for each account in the returned list. FULL is the default behavior.",
+          "description": "Determines whether Slim, or increased level of detail is provided for each account in the returned list. FULL is the default behavior.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "SLIM",
+            "FULL"
+          ]
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Max number of results to return.",
+          "description": "Max number of results to return.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Offset",
+          "name": "offset",
+          "type": "integer",
+          "tooltip": "Offset into the full result set. Usually specified with limit to paginate through the results.",
+          "description": "Offset into the full result set. Usually specified with limit to paginate through the results.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": [
+        {
+          "id": "",
+          "name": "",
+          "created": "",
+          "modified": "",
+          "sourceId": "",
+          "identityId": "",
+          "attributes": {},
+          "authoritative": "",
+          "description": "",
+          "disabled": "",
+          "locked": "",
+          "nativeIdentity": "",
+          "systemAccount": "",
+          "uncorrelated": "",
+          "uuid": "",
+          "manuallyCorrelated": "",
+          "hasEntitlements": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_account_details",
+      "title": "Get Account Details",
+      "description": "Retrieves a account detail based on the ID.",
+      "category": "investigation",
+      "annotation": "get_account_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Account ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "Specify the ID of the account for which you are retrieving details",
+          "description": "Specify the ID of the account for which you are retrieving details",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "created": "",
+        "modified": "",
+        "sourceId": "",
+        "identityId": "",
+        "attributes": {},
+        "authoritative": "",
+        "description": "",
+        "disabled": "",
+        "locked": "",
+        "nativeIdentity": "",
+        "systemAccount": "",
+        "uncorrelated": "",
+        "uuid": "",
+        "manuallyCorrelated": "",
+        "hasEntitlements": ""
+      }
+    },
+    {
+      "operation": "get_account_activities",
+      "title": "Get Account Activities",
+      "description": "This gets a collection of account activities that satisfy the given query parameters.",
+      "category": "investigation",
+      "annotation": "get_account_activities",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Type",
+          "name": "account_type",
+          "type": "text",
+          "tooltip": "The type of account activity.",
+          "description": "The type of account activity.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Requested For",
+          "name": "requested-for",
+          "type": "text",
+          "tooltip": "The identity that the activity was requested for. me indicates the current user. Mutually exclusive with regarding-identity.",
+          "description": "The identity that the activity was requested for. me indicates the current user. Mutually exclusive with regarding-identity.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Requested By",
+          "name": "requested-by",
+          "type": "text",
+          "tooltip": "The identity that requested the activity. me indicates the current user. Mutually exclusive with regarding-identity.",
+          "description": "The identity that requested the activity. me indicates the current user. Mutually exclusive with regarding-identity.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Regarding Identity",
+          "name": "regarding-identity",
+          "type": "text",
+          "tooltip": "The specified identity will be either the requester or target of the account activity. me indicates the current user. Mutually exclusive with requested-for and requested-by.",
+          "description": "The specified identity will be either the requester or target of the account activity. me indicates the current user. Mutually exclusive with requested-for and requested-by.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Sort By",
+          "name": "sorters",
+          "type": "select",
+          "tooltip": "Sort results based on selected field. Sorting is supported for the following fields: type, created, modified",
+          "description": "Sort results based on selected field. Sorting is supported for the following fields: type, created, modified",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "Type",
+            "Created",
+            "Modified"
+          ]
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Max number of results to return.",
+          "description": "Max number of results to return.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Offset",
+          "name": "offset",
+          "type": "text",
+          "tooltip": "Offset into the full result set. Usually specified with limit to paginate through the results.",
+          "description": "Offset into the full result set. Usually specified with limit to paginate through the results.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": [
+        {
+          "id": "",
+          "name": "",
+          "created": "",
+          "modified": "",
+          "completed": "",
+          "completionStatus": "",
+          "type": "",
+          "requesterIdentitySummary": {
+            "id": "",
+            "name": "",
+            "identityId": "",
+            "completed": ""
+          },
+          "targetIdentitySummary": {
+            "id": "",
+            "name": "",
+            "identityId": "",
+            "completed": ""
+          },
+          "errors": [],
+          "warnings": "",
+          "items": [
+            {
+              "id": "",
+              "name": "",
+              "requested": "",
+              "approvalStatus": "",
+              "provisioningStatus": "",
+              "requesterComment": {
+                "commenterId": "",
+                "commenterName": "",
+                "body": "",
+                "date": ""
+              },
+              "reviewerIdentitySummary": {
+                "id": "",
+                "name": "",
+                "identityId": "",
+                "completed": ""
+              },
+              "reviewerComment": {
+                "commenterId": "",
+                "commenterName": "",
+                "body": "",
+                "date": ""
+              },
+              "operation": "",
+              "attribute": "",
+              "value": "",
+              "nativeIdentity": "",
+              "sourceId": "",
+              "accountRequestInfo": {
+                "requestedObjectId": "",
+                "requestedObjectName": "",
+                "requestedObjectType": ""
+              },
+              "clientMetadata": {
+                "property1": "",
+                "property2": ""
+              },
+              "removeDate": ""
+            }
+          ],
+          "executionStatus": "",
+          "clientMetadata": {
+            "property1": "",
+            "property2": ""
+          },
+          "cancelable": "",
+          "cancelComment": {
+            "commenterId": "",
+            "commenterName": "",
+            "body": "",
+            "date": ""
+          }
+        }
+      ]
+    },
+    {
+      "operation": "get_account_activity",
+      "title": "Get Account Activity",
+      "description": "This gets a collection of account activities that satisfy the given query parameters.",
+      "category": "investigation",
+      "annotation": "get_account_activity",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Activity ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "The account activity id.",
+          "description": "The account activity id.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "created": "",
+        "modified": "",
+        "completed": "",
+        "completionStatus": "",
+        "type": "",
+        "requesterIdentitySummary": {
+          "id": "",
+          "name": "",
+          "identityId": "",
+          "completed": ""
+        },
+        "targetIdentitySummary": {
+          "id": "",
+          "name": "",
+          "identityId": "",
+          "completed": ""
+        },
+        "errors": [],
+        "warnings": [],
+        "items": [
+          {
+            "id": "",
+            "name": "",
+            "requested": "",
+            "approvalStatus": "",
+            "provisioningStatus": "",
+            "requesterComment": {
+              "commenterId": "",
+              "commenterName": "",
+              "body": "",
+              "date": ""
+            },
+            "reviewerIdentitySummary": {
+              "id": "",
+              "name": "",
+              "identityId": "",
+              "completed": ""
+            },
+            "reviewerComment": {
+              "commenterId": "",
+              "commenterName": "",
+              "body": "",
+              "date": ""
+            },
+            "operation": "",
+            "attribute": "",
+            "value": "",
+            "nativeIdentity": "",
+            "sourceId": "",
+            "accountRequestInfo": {
+              "requestedObjectId": "",
+              "requestedObjectName": "",
+              "requestedObjectType": ""
+            },
+            "clientMetadata": {},
+            "removeDate": ""
+          }
+        ],
+        "executionStatus": "",
+        "clientMetadata": {}
+      }
+    },
+    {
+      "operation": "get_password_info",
+      "title": "Get Password Info",
+      "description": "Get password related information.",
+      "category": "investigation",
+      "annotation": "get_password_info",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "User Name",
+          "name": "userName",
+          "type": "text",
+          "tooltip": "The login name of the user.",
+          "description": "The login name of the user.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Source Name",
+          "name": "sourceName",
+          "type": "text",
+          "tooltip": "The display name of the source.",
+          "description": "The display name of the source.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "requestId": "",
+        "state": ""
+      }
+    },
+    {
+      "operation": "reset_password",
+      "title": "Reset Password",
+      "description": "Set a password for an identity. The password can only be set by the actual identity owner or by a trusted API client application.",
+      "category": "containment",
+      "annotation": "reset_password",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "User Name",
+          "name": "userName",
+          "type": "text",
+          "tooltip": "The login name of the user.",
+          "description": "The login name of the user.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Source Name",
+          "name": "sourceName",
+          "type": "password",
+          "tooltip": "The display name of the source.",
+          "description": "The display name of the source.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Identity ID",
+          "name": "identityId",
+          "type": "text",
+          "tooltip": "The identity ID that requested the password change.",
+          "description": "The identity ID that requested the password change.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Password",
+          "name": "password",
+          "type": "password",
+          "tooltip": "The RSA encrypted password",
+          "description": "The RSA encrypted password",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Public Key ID",
+          "name": "publicKeyId",
+          "type": "text",
+          "tooltip": "The encryption key ID",
+          "description": "The encryption key ID",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Account ID",
+          "name": "accountId",
+          "type": "text",
+          "tooltip": "Account ID of the account This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350",
+          "description": "Account ID of the account This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Source ID",
+          "name": "sourceId",
+          "type": "text",
+          "tooltip": "The ID of the source for which identity is requesting the password change.",
+          "description": "The ID of the source for which identity is requesting the password change.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "requestId": "",
+        "state": ""
+      }
+    },
+    {
+      "operation": "enable_account",
+      "title": "Enable Account",
+      "description": "Enable the account.",
+      "category": "containment",
+      "annotation": "enable_account",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "The account id.",
+          "description": "The account id.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "External Verification ID",
+          "name": "externalVerificationId",
+          "type": "text",
+          "tooltip": "If set, an external process validates that the user wants to proceed with this request.",
+          "description": "If set, an external process validates that the user wants to proceed with this request.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Force Provisioning",
+          "name": "forceProvisioning",
+          "type": "checkbox",
+          "tooltip": "If set, provisioning updates the account attribute at the source. This option is used when the account is not synced to ensure the attribute is updated. Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow.",
+          "description": "If set, provisioning updates the account attribute at the source. This option is used when the account is not synced to ensure the attribute is updated. Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": ""
+      }
+    },
+    {
+      "operation": "disable_account",
+      "title": "Disable Account",
+      "description": "Disable the account.",
+      "category": "containment",
+      "annotation": "disable_account",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "The account id.",
+          "description": "The account id.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "External Verification ID",
+          "name": "externalVerificationId",
+          "type": "text",
+          "tooltip": "If set, an external process validates that the user wants to proceed with this request.",
+          "description": "If set, an external process validates that the user wants to proceed with this request.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Force Provisioning",
+          "name": "forceProvisioning",
+          "type": "checkbox",
+          "tooltip": "If set, provisioning updates the account attribute at the source. This option is used when the account is not synced to ensure the attribute is updated. Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow.",
+          "description": "If set, provisioning updates the account attribute at the source. This option is used when the account is not synced to ensure the attribute is updated. Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": ""
+      }
+    },
+    {
+      "operation": "unlock_account",
+      "title": "Unlock Account",
+      "description": "Unlock the account.",
+      "category": "containment",
+      "annotation": "unlock_account",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "The account id.",
+          "description": "The account id.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "External Verification ID",
+          "name": "externalVerificationId",
+          "type": "text",
+          "tooltip": "If set, an external process validates that the user wants to proceed with this request.",
+          "description": "If set, an external process validates that the user wants to proceed with this request.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Unlock IDN Account",
+          "name": "unlockIDNAccount",
+          "type": "checkbox",
+          "tooltip": "If set, the IDN account is unlocked after the workflow completes.",
+          "description": "If set, the IDN account is unlocked after the workflow completes.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Force Provisioning",
+          "name": "forceProvisioning",
+          "type": "checkbox",
+          "tooltip": "If set, provisioning updates the account attribute at the source. This option is used when the account is not synced to ensure the attribute is updated.",
+          "description": "If set, provisioning updates the account attribute at the source. This option is used when the account is not synced to ensure the attribute is updated.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "id": ""
+      }
+    },
+    {
+      "operation": "grant_request",
+      "title": "Grant Request",
+      "description": "Grant the request.",
+      "category": "containment",
+      "annotation": "grant_request",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Requested For",
+          "name": "requestedFor",
+          "type": "text",
+          "tooltip": "Specify a CSV list of Identity IDs for whom the Access is requested.",
+          "description": "Specify a CSV list of Identity IDs for whom the Access is requested.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Requested Items",
+          "name": "requestedItems",
+          "type": "json",
+          "tooltip": "Specify the type, id, comment JSON data in key-value pairs.",
+          "description": "Specify the type, id, comment JSON data in key-value pairs.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": [
+            {
+              "type": "ACCESS_PROFILE",
+              "id": "2c9180835d2e5168015d32f890ca1581",
+              "comment": "Requesting access profile for John Doe",
+              "clientMetadata": {
+                "requestedAppName": "test-app",
+                "requestedAppId": "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate": "2020-07-11T21:23:15.000Z"
+            }
+          ]
+        },
+        {
+          "title": "Client Metadata",
+          "name": "clientMetadata",
+          "type": "json",
+          "tooltip": "Specify the client metadata in JSON format (key-value pairs).",
+          "description": "Specify the client metadata in JSON format (key-value pairs).",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "result": ""
+      }
+    },
+    {
+      "operation": "revoke_request",
+      "title": "Revoke Request",
+      "description": "Revoke the request.",
+      "category": "containment",
+      "annotation": "revoke_request",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Requested For",
+          "name": "requestedFor",
+          "type": "text",
+          "tooltip": "A list of Identity IDs for whom the Access is requested.",
+          "description": "A list of Identity IDs for whom the Access is requested.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Requested Items",
+          "name": "requestedItems",
+          "type": "json",
+          "tooltip": "Specify the type,id,comment JSON data in key-value pairs.",
+          "description": "Specify the type,id,comment JSON data in key-value pairs.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": [
+            {
+              "type": "ACCESS_PROFILE",
+              "id": "2c9180835d2e5168015d32f890ca1581",
+              "comment": "Requesting access profile for John Doe",
+              "clientMetadata": {
+                "requestedAppName": "test-app",
+                "requestedAppId": "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate": "2020-07-11T21:23:15.000Z"
+            }
+          ]
+        },
+        {
+          "title": "Client Metadata",
+          "name": "clientMetadata",
+          "type": "json",
+          "tooltip": "Specify the client metadata in JSON format (key-value pairs).",
+          "description": "Specify the client metadata in JSON format (key-value pairs).",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "result": ""
+      }
+    }
+  ]
+}
