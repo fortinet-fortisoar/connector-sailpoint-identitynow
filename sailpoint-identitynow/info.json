@@ -450,8 +450,18 @@
         }
       ],
       "output_schema": {
-        "requestId": "",
-        "state": ""
+        "identityId": "",
+        "sourceId": "",
+        "publicKeyId": "",
+        "publicKey": "",
+        "accounts": [
+          {
+            "accountId": "",
+            "accountName": ""
+          }
+        ],
+        "policies": [
+        ]
       }
     },
     {
@@ -475,7 +485,7 @@
         {
           "title": "Source Name",
           "name": "sourceName",
-          "type": "password",
+          "type": "text",
           "tooltip": "The display name of the source.",
           "description": "The display name of the source.",
           "required": true,
