@@ -4,7 +4,7 @@
     {
       "@type": "WorkflowCollection",
       "name": "Sample - SailPoint IdentityNow - 1.0.0",
-      "description": "Sample playbooks for \"SailPoint IdentityNow\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "description": "SailPoint IdentityNow that allows you to easily control user access to all systems and applications, enhance audit response and increase your operational efficiency. This connector facilitates automated operation for identity management.",
       "visible": true,
       "image": "playbooks.png",
       "uuid": "94e89f37-5c20-4777-a909-3d534203f05e",
