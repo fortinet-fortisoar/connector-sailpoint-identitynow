@@ -54,11 +54,9 @@ class SailPointOAuth(object):
                 return response.json()
             if response.status_code in error_msgs.keys():
                 message = "{0}: {1}".format(error_msgs.get(response.status_code), response.text)
-                logger.error(message)
                 raise ConnectorError(message)
             else:
                 msg = json.loads(response.text)
-                logger.exception(msg)
                 raise ConnectorError(msg)
         except req_exceptions.SSLError:
             logger.error('An SSL error occurred')

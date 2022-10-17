@@ -70,7 +70,7 @@
           "name": "filter",
           "type": "text",
           "tooltip": "Filter result based on provided filter Filtering is supported for the following fields and operators:\nid: eq, in \\n identityId: eq \\n name: eq, in \\n nativeIdentity: eq, in \\n sourceId: eq, in \\n uncorrelated: eq.Please refer this link https://developer.sailpoint.com/docs/standard_collection_parameters.html",
-          "description": "Filter result based on provided filter Filtering is supported for the following fields and operators:\nid: eq, in \\n identityId: eq \\n name: eq, in \\n nativeIdentity: eq, in \\n sourceId: eq, in \\n uncorrelated: eq.Please refer this link https://developer.sailpoint.com/docs/standard_collection_parameters.html",
+          "description": "Filter result based on provided filter Filtering is supported for the following fields and operators:\nid: eq, in \\n identityId: eq \\n name: eq, in \\n nativeIdentity: eq, in \\n sourceId: eq, in \\n uncorrelated: eq.",
           "required": false,
           "visible": true,
           "editable": true,
@@ -98,7 +98,8 @@
           "description": "Max number of results to return.",
           "required": false,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": 250
         },
         {
           "title": "Offset",
@@ -194,8 +195,8 @@
           "title": "Requested For",
           "name": "requested-for",
           "type": "text",
-          "tooltip": "The identity that the activity was requested for. me indicates the current user. Mutually exclusive with regarding-identity.",
-          "description": "The identity that the activity was requested for. me indicates the current user. Mutually exclusive with regarding-identity.",
+          "tooltip": "The identity that the activity was requested for. \"me\" indicates the current user. Mutually exclusive with regarding-identity.",
+          "description": "The identity that the activity was requested for. \"me\" indicates the current user. Mutually exclusive with regarding-identity.",
           "required": false,
           "visible": true,
           "editable": true
@@ -243,7 +244,8 @@
           "description": "Max number of results to return.",
           "required": false,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": 250
         },
         {
           "title": "Offset",

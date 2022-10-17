@@ -14,20 +14,19 @@ logger = get_logger('sailpoint-identitynow')
 
 class SailPointIdentityNow(object):
     def __init__(self, config):
-        self.server_url = config.get('server_url', '').strip('/')
-        if not self.server_url.startswith('https://') and not self.server_url.startswith('http://'):
-            self._server_url = 'https://' + self.server_url
-        self.username = config.get('username')
-        self.password = config.get('password')
-        self.verify_ssl = config.get('verify_ssl')
         self.connector_info = config.pop('connector_info', '')
         self.sp_auth = SailPointOAuth(config)
         self.token = self.sp_auth.validate_token(config, self.connector_info)
         self.headers = {'Content-Type': 'application/json', 'Authorization': '{}'.format(self.token)}
 
 
+def remove_empty_params(params):
+    params = {k: v for k, v in params.items() if v is not None and v != ''}
+    return params
+
+
 def get_accounts(config, params):
-    query_string = {k: v for k, v in params.items() if v is not None and v != ''}
+    query_string = remove_empty_params(params)
     sail_point = SailPointIdentityNow(config)
     return sail_point.sp_auth.make_rest_call('/v3/accounts', params=query_string, headers=sail_point.headers)
 
@@ -45,7 +44,7 @@ def get_account_activities(config, params):
     if account_type:
         params.update({'filters': ''.join(('type eq "', account_type, '"'))})
     params['sorters'] = params.get('sorters', '').lower()
-    query_string = {k: v for k, v in params.items() if v is not None and v != ''}
+    query_string = remove_empty_params(params)
     return sail_point.sp_auth.make_rest_call('/v3/account-activities', params=query_string,
                                              headers=sail_point.headers)
 
@@ -59,7 +58,7 @@ def get_account_activity(config, params):
 
 def get_password_info(config, params):
     sail_point = SailPointIdentityNow(config)
-    request_body = {k: v for k, v in params.items() if v is not None and v != ''}
+    request_body = remove_empty_params(params)
     payload = json.dumps(request_body)
     sail_point.headers.update({'Accept': 'application/json'})
     return sail_point.sp_auth.make_rest_call('/v3/query-password-info', payload=payload,
@@ -85,7 +84,7 @@ def reset_password(config, params):
     public_key = password_info.get('publicKey')
     if (identity_id == params.get('identityId')) and (public_key_id == params.get(
             'publicKeyId')) and (source_id == params.get('sourceId')):
-        request_body = {k: v for k, v in params.items() if v is not None and v != ''}
+        request_body = remove_empty_params(params)
         rsa_encrypted_password = convert_password_rsa_encrypted_format(password, public_key)
         params['encryptedPassword'] = rsa_encrypted_password
         payload = json.dumps(request_body)
@@ -102,7 +101,7 @@ def enable_account(config, params):
     account_id = params.pop('id', '')
     endpoint = f'/v3/accounts/{account_id}/enable'
     sail_point.headers.update({'Accept': 'application/json'})
-    request_body = {k: v for k, v in params.items() if v is not None and v != ''}
+    request_body = remove_empty_params(params)
     payload = json.dumps(request_body)
     return sail_point.sp_auth.make_rest_call(endpoint, payload=payload, headers=sail_point.headers, method='POST')
 
@@ -112,7 +111,7 @@ def disable_account(config, params):
     account_id = params.pop('id', '')
     endpoint = f'/v3/accounts/{account_id}/disable'
     sail_point.headers.update({'Accept': 'application/json'})
-    request_body = {k: v for k, v in params.items() if v is not None and v != ''}
+    request_body = remove_empty_params(params)
     payload = json.dumps(request_body)
     return sail_point.sp_auth.make_rest_call(endpoint, payload=payload, headers=sail_point.headers, method='POST')
 
@@ -121,7 +120,7 @@ def unlock_account(config, params):
     sail_point = SailPointIdentityNow(config)
     account_id = params.pop('id', '')
     endpoint = f'/v3/accounts/{account_id}/unlock'
-    request_body = {k: v for k, v in params.items() if v is not None and v != ''}
+    request_body = remove_empty_params(params)
     payload = json.dumps(request_body)
     return sail_point.sp_auth.make_rest_call(endpoint, payload=payload, headers=sail_point.headers, method='POST')
 
@@ -169,3 +168,4 @@ supported_operation = {
     'revoke_request': revoke_request,
     'grant_request': grant_request
 }
+
