@@ -4,16 +4,18 @@
     {
       "@type": "WorkflowCollection",
       "name": "Sample - SailPoint IdentityNow - 1.0.0",
-      "description": "SailPoint IdentityNow that allows you to easily control user access to all systems and applications, enhance audit response and increase your operational efficiency. This connector facilitates automated operation for identity management.",
+      "description": "Sample playbooks for \"SailPoint IdentityNow\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "playbooks.png",
+      "image": "",
       "uuid": "94e89f37-5c20-4777-a909-3d534203f05e",
-      "id": 427,
-      "deletedAt": null,
-      "importedBy": [],
+      "id": 232,
+      "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "createDate": 1667280088,
+      "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "modifyDate": 1667280088,
       "recordTags": [
-        "SailPoint",
-        "sailpoint-identitynow"
+        "sailpoint-identitynow",
+        "SailPoint"
       ],
       "workflows": [
         {
@@ -22,14 +24,14 @@
           "name": "Get Password Info",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Get password related information.",
+          "description": "Retrieves password-related information based on the username you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665663734,
+          "lastModifyDate": 1667552902,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/2e6a97b7-54de-463e-9ab7-64e85c449e56",
@@ -58,8 +60,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "2e6a97b7-54de-463e-9ab7-64e85c449e56"
+              "uuid": "2e6a97b7-54de-463e-9ab7-64e85c449e56",
+              "id": 9432
             },
             {
               "@type": "WorkflowStep",
@@ -84,8 +86,8 @@
               "top": "120",
               "left": "180",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "bfa452a6-072b-4a1f-b034-f93d05d95938"
+              "uuid": "bfa452a6-072b-4a1f-b034-f93d05d95938",
+              "id": 9433
             }
           ],
           "routes": [
@@ -99,18 +101,19 @@
               "uuid": "d0578861-3e7a-4b13-ad2a-c8ba88be5929"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "03bf55f1-2243-495f-bb94-7614a5bf7430",
-          "id": 6175,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3508,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667552902,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -118,14 +121,14 @@
           "name": "Get Account Details",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Retrieves a account detail based on the ID.",
+          "description": "Retrieves the details for a single account based on the account ID you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665663382,
+          "lastModifyDate": 1667540955,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/cfe5a824-1252-4c17-87fa-345c86a28466",
@@ -155,8 +158,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "cfe5a824-1252-4c17-87fa-345c86a28466"
+              "uuid": "cfe5a824-1252-4c17-87fa-345c86a28466",
+              "id": 9434
             },
             {
               "@type": "WorkflowStep",
@@ -180,8 +183,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "e55bdff3-8369-4f40-b13f-603ea71800ab"
+              "uuid": "e55bdff3-8369-4f40-b13f-603ea71800ab",
+              "id": 9435
             }
           ],
           "routes": [
@@ -195,18 +198,19 @@
               "uuid": "3ff656d8-c390-4233-8f27-6d5205f3331f"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "1743450a-3a82-4abb-85e2-1f3cc39b13da",
-          "id": 6172,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3509,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667540955,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -214,14 +218,14 @@
           "name": "Get Account Activity",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "This gets a collection of account activities that satisfy the given query parameters.",
+          "description": "Retrieves a single account activity based on the account activity ID you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665663572,
+          "lastModifyDate": 1667540968,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/4fbeda89-6976-4c84-9265-f9915668ecbe",
@@ -250,8 +254,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "4fbeda89-6976-4c84-9265-f9915668ecbe"
+              "uuid": "4fbeda89-6976-4c84-9265-f9915668ecbe",
+              "id": 9436
             },
             {
               "@type": "WorkflowStep",
@@ -275,8 +279,8 @@
               "top": "120",
               "left": "180",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "642465e3-ffd1-45dd-afe8-6f096525bb10"
+              "uuid": "642465e3-ffd1-45dd-afe8-6f096525bb10",
+              "id": 9437
             }
           ],
           "routes": [
@@ -290,18 +294,19 @@
               "uuid": "261e44be-738c-4a32-a11a-20da7407b1ba"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "308eafe0-ae49-48b1-9afe-0d3c78fe4c94",
-          "id": 6174,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3510,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667540968,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -309,14 +314,14 @@
           "name": "Get Account Activities",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "This gets a collection of account activities that satisfy the given query parameters.",
+          "description": "Retrieves a collection of account activities based on the type of account activity requested, the count of results, and the requester details you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665663545,
+          "lastModifyDate": 1667541228,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/92c05aee-96a0-450b-a9a7-1d29a0c96e5c",
@@ -341,8 +346,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "5eefff84-61ba-4842-aad4-2d73c51eebce"
+              "uuid": "5eefff84-61ba-4842-aad4-2d73c51eebce",
+              "id": 9438
             },
             {
               "@type": "WorkflowStep",
@@ -368,8 +373,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "92c05aee-96a0-450b-a9a7-1d29a0c96e5c"
+              "uuid": "92c05aee-96a0-450b-a9a7-1d29a0c96e5c",
+              "id": 9439
             }
           ],
           "routes": [
@@ -383,18 +388,19 @@
               "uuid": "0d79288f-545d-4c07-9d1c-7b305ca4c8f7"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "36611529-d7e5-4d51-ae3e-bf35ec0a589f",
-          "id": 6173,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3511,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667541228,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -402,14 +408,14 @@
           "name": "Disable Account",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Disable the account.",
+          "description": "Submits a task to disable an account based on the account ID you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665664750,
+          "lastModifyDate": 1667553475,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/6e5f24a0-2b80-4b8c-9e81-d2e9117c372b",
@@ -438,8 +444,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "6e5f24a0-2b80-4b8c-9e81-d2e9117c372b"
+              "uuid": "6e5f24a0-2b80-4b8c-9e81-d2e9117c372b",
+              "id": 9440
             },
             {
               "@type": "WorkflowStep",
@@ -465,8 +471,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "daafe68e-2ec5-4169-b09f-ef73af5d60a7"
+              "uuid": "daafe68e-2ec5-4169-b09f-ef73af5d60a7",
+              "id": 9441
             }
           ],
           "routes": [
@@ -480,18 +486,19 @@
               "uuid": "1bc8db93-e668-49a4-968a-0b7e70b4c1f8"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "865de797-9b99-416f-b624-e69c80589943",
-          "id": 6178,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3512,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667553475,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -499,14 +506,14 @@
           "name": "Reset Password",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Set a password for an identity. The password can only be set by the actual identity owner or by a trusted API client application.",
+          "description": "Sets a password for an identity based on the identity ID, public key, and the RSA encrypted password you have specified. The password can only be set by the actual identity owner or by a trusted API client application.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": null,
+          "lastModifyDate": 1667552948,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/da97d4d8-8741-4088-9877-a041b0ac0ceb",
@@ -531,8 +538,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "1989bf23-beaf-468d-8921-df93667b1a59"
+              "uuid": "1989bf23-beaf-468d-8921-df93667b1a59",
+              "id": 9442
             },
             {
               "@type": "WorkflowStep",
@@ -558,8 +565,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "da97d4d8-8741-4088-9877-a041b0ac0ceb"
+              "uuid": "da97d4d8-8741-4088-9877-a041b0ac0ceb",
+              "id": 9443
             }
           ],
           "routes": [
@@ -573,44 +580,45 @@
               "uuid": "381d4a65-01a7-40c2-b0af-4267719b5f89"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "9d776021-f421-493f-a04d-ee810fd9c815",
-          "id": 6176,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3513,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667552948,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
-          "name": "Revoke Request",
+          "name": "Revoke Access",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Revoke the request.",
+          "description": "Revokes access to roles, profiles, or entitlements based on the JSON formatted request that you have sent for revoking access.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665664144,
+          "lastModifyDate": 1667562358,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/44027438-9867-4f0a-8c45-acb3decbcf64",
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Revoke Request",
+              "name": "Revoke Access",
               "description": null,
               "arguments": {
                 "name": "SailPoint IdentityNow",
-                "config": "2fbd5b55-6edf-4a8e-8ffc-15b3c8aa3659",
+                "config": "test",
                 "params": {
                   "requestedFor": "2c918084660f45d6016617daa9210584",
                   "clientMetadata": "{\n    \"requestedAppId\": \"2c91808f7892918f0178b78da4a305a1\",\n    \"requestedAppName\": \"test-app\"\n  }",
@@ -639,8 +647,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "00a39722-7b2e-4e1d-bae9-5d203a8f453e"
+              "uuid": "00a39722-7b2e-4e1d-bae9-5d203a8f453e",
+              "id": 9444
             },
             {
               "@type": "WorkflowStep",
@@ -648,14 +656,15 @@
               "description": null,
               "arguments": {
                 "route": "81b73cff-a659-4385-96f0-4b37b2d0e0ce",
-                "title": "SailPoint IdentityNow: Revoke Request",
+                "title": "SailPoint IdentityNow: Revoke Access",
                 "resources": [
                   "alerts"
                 ],
                 "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": [],
+                    "records": "{{vars.input.records}}"
                   }
                 },
                 "executeButtonText": "Execute",
@@ -666,8 +675,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "44027438-9867-4f0a-8c45-acb3decbcf64"
+              "uuid": "44027438-9867-4f0a-8c45-acb3decbcf64",
+              "id": 9445
             }
           ],
           "routes": [
@@ -681,18 +690,19 @@
               "uuid": "420cfa37-63a5-4188-b34e-295eb4df5df8"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "b31c6084-edd3-41c3-ad06-fba7a17ef726",
-          "id": 6181,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3514,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667562358,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -700,14 +710,14 @@
           "name": "Enable Account",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Enable the account.",
+          "description": "Submits a task to enable an account based on the account ID you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665664844,
+          "lastModifyDate": 1667553458,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/424a5756-a177-47a7-87f2-e461d092f99f",
@@ -736,8 +746,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "329a928f-6d1d-4927-8919-aad3231cbdf8"
+              "uuid": "329a928f-6d1d-4927-8919-aad3231cbdf8",
+              "id": 9446
             },
             {
               "@type": "WorkflowStep",
@@ -763,8 +773,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "424a5756-a177-47a7-87f2-e461d092f99f"
+              "uuid": "424a5756-a177-47a7-87f2-e461d092f99f",
+              "id": 9447
             }
           ],
           "routes": [
@@ -778,18 +788,19 @@
               "uuid": "85d27161-a8e7-4711-be2a-f0807cb10669"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "dd7d9af5-286e-476a-8200-dddb3dc27db7",
-          "id": 6177,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3515,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667553458,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -797,14 +808,14 @@
           "name": "Get Accounts",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Retrieves a list of all accounts details from the SailPoint IdentityNow system.",
+          "description": "Retrieves a list of all accounts, from the SailPoint IdentityNow system, based on the level of detail required and the count of results to return.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665660705,
+          "lastModifyDate": 1667540793,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/a2f0c91c-9391-41dc-8404-7f9793b761a7",
@@ -834,8 +845,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "1751b737-c9ee-4b15-924a-1df6470264f7"
+              "uuid": "1751b737-c9ee-4b15-924a-1df6470264f7",
+              "id": 9448
             },
             {
               "@type": "WorkflowStep",
@@ -861,8 +872,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "a2f0c91c-9391-41dc-8404-7f9793b761a7"
+              "uuid": "a2f0c91c-9391-41dc-8404-7f9793b761a7",
+              "id": 9449
             }
           ],
           "routes": [
@@ -876,44 +887,45 @@
               "uuid": "46e6f5ad-be6a-43cd-bbd9-0d704de29963"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "eb7c867d-7cde-4ffc-bd0c-6684fba7189d",
-          "id": 6171,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3516,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667540793,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
-          "name": "Grant Request",
+          "name": "Grant Access",
           "aliasName": null,
           "tag": "#SailPoint IdentityNow",
-          "description": "Grant the request.",
+          "description": "Grants access to roles, profiles, or entitlements based on the JSON formatted request that you have sent for granting access.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1665664248,
+          "lastModifyDate": 1667562298,
           "collection": "/api/3/workflow_collections/94e89f37-5c20-4777-a909-3d534203f05e",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/ab11a017-4772-4f7e-9d5c-d3c12ac8a70a",
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Grant Request",
+              "name": "Grant Access",
               "description": null,
               "arguments": {
                 "name": "SailPoint IdentityNow",
-                "config": "2fbd5b55-6edf-4a8e-8ffc-15b3c8aa3659",
+                "config": "test",
                 "params": {
                   "requestedFor": "2c918084660f45d6016617daa9210584",
                   "clientMetadata": "{\n    \"requestedAppId\": \"2c91808f7892918f0178b78da4a305a1\",\n    \"requestedAppName\": \"test-app\"\n  }",
@@ -942,8 +954,8 @@
               "top": "120",
               "left": "188",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "12f22b98-5f72-49f9-804b-799cbef02cc5"
+              "uuid": "12f22b98-5f72-49f9-804b-799cbef02cc5",
+              "id": 9450
             },
             {
               "@type": "WorkflowStep",
@@ -951,14 +963,15 @@
               "description": null,
               "arguments": {
                 "route": "5f73acbd-36e0-4b1b-8d5c-98679e8e4398",
-                "title": "SailPoint IdentityNow: Grant Request",
+                "title": "SailPoint IdentityNow: Grant Access",
                 "resources": [
                   "alerts"
                 ],
                 "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": [],
+                    "records": "{{vars.input.records}}"
                   }
                 },
                 "executeButtonText": "Execute",
@@ -969,8 +982,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "ab11a017-4772-4f7e-9d5c-d3c12ac8a70a"
+              "uuid": "ab11a017-4772-4f7e-9d5c-d3c12ac8a70a",
+              "id": 9451
             }
           ],
           "routes": [
@@ -984,18 +997,19 @@
               "uuid": "45947863-1085-4a20-aa88-f1deeb446fd9"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "f034bf4f-974d-4092-a615-c670026a3a0a",
-          "id": 6180,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3517,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1667562298,
+          "owners": [],
+          "isPrivate": false
         },
         {
           "@type": "Workflow",
@@ -1039,8 +1053,8 @@
               "top": "20",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "2537f75a-da38-4ac4-b1a7-70ec593d844e"
+              "uuid": "2537f75a-da38-4ac4-b1a7-70ec593d844e",
+              "id": 9452
             },
             {
               "@type": "WorkflowStep",
@@ -1067,8 +1081,8 @@
               "top": "120",
               "left": "180",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "a226d8d3-cc11-425f-8b46-414e1c4bbce1"
+              "uuid": "a226d8d3-cc11-425f-8b46-414e1c4bbce1",
+              "id": 9453
             }
           ],
           "routes": [
@@ -1082,24 +1096,25 @@
               "uuid": "56968848-c674-4baa-9657-20061cd41787"
             }
           ],
-          "groups": [],
           "priority": null,
           "uuid": "f90291e7-0232-4a1e-9331-5bea04916dc9",
-          "id": 6179,
-          "owners": [],
-          "isPrivate": false,
-          "deletedAt": null,
-          "importedBy": [],
           "recordTags": [
-            "SailPoint",
-            "sailpoint-identitynow"
-          ]
+            "sailpoint-identitynow",
+            "SailPoint"
+          ],
+          "id": 3518,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1667280088,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1667280088,
+          "owners": [],
+          "isPrivate": false
         }
       ]
     }
   ],
   "exported_tags": [
-    "SailPoint",
-    "sailpoint-identitynow"
+    "sailpoint-identitynow",
+    "SailPoint"
   ]
 }
